@@ -1,0 +1,16 @@
+.education-item h3 {
+  font-size: 1.1rem;
+}
+
+.education-school {
+  margin-top: 0.25rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.education-period {
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
