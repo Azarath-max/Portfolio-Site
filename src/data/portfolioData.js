@@ -7,15 +7,16 @@ export const profile = {
   name: "John Gabriel L. Panopio",
   shortName: "John Gabriel Panopio",
   initials: "JP",
-  title: "Computer Engineering Graduate",
+  titleLine1: "Computer Engineering",
+  titleLine2: "Graduate",
   tagline:
     "Interested in software, automation, and solving practical technical problems.",
   summary:
-    "I'm an entry-level technology professional currently developing my skills in software development and workflow automation. I'm looking for opportunities in IT support, automation, or junior software roles where I can keep building on what I learned in school and during my internship.",
-  email: "cpe.panopio.johngabriel@gmail.com", // TODO: replace with your real email
+    "I recently completed my Computer Engineering degree and gained hands-on experience in telecommunications during my internship. I'm now building my skills in software development, automation, and APIs.",
+  email: "cpe.panopio.johngabriel@gmail.com",
   links: {
-    github: "https://github.com/Azarath-max", // TODO: replace
-    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/", // TODO: replace
+    github: "https://github.com/your-username", // TODO: replace
+    linkedin: "https://linkedin.com/in/your-profile", // TODO: replace
   },
 };
 
@@ -23,7 +24,7 @@ export const quickFacts = [
   { label: "Status", value: "Open to entry-level roles" },
   { label: "Focus", value: "IT · Automation · Software" },
   { label: "Education", value: "BS Computer Engineering, 2026" },
-  { label: "Based in", value: "Philippines" },
+  { label: "Currently Learning", value: "Python · n8n · APIs" },
 ];
 
 export const highlights = [

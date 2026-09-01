@@ -10,9 +10,16 @@
   align-items: start;
 }
 
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
 .hero-title {
   font-size: 2.5rem;
-  max-width: 14ch;
+  max-width: 22ch;
 }
 
 .hero-tagline {

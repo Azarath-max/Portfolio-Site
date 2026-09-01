@@ -7,7 +7,12 @@ export default function Hero() {
     <section id="top" className="hero">
       <div className="container-wide hero-grid">
         <div className="hero-main">
-          <h1 className="hero-title">{profile.title}</h1>
+          <p className="hero-name">{profile.shortName}</p>
+          <h1 className="hero-title">
+            {profile.titleLine1}
+            <br />
+            {profile.titleLine2}
+          </h1>
           <p className="hero-tagline">{profile.tagline}</p>
           <p className="hero-summary">{profile.summary}</p>
 
@@ -39,7 +44,11 @@ export default function Hero() {
             >
               <Linkedin size={18} />
             </a>
-            <a className="icon-link" href={`mailto:${profile.email}`} aria-label="Email">
+            <a
+              className="icon-link"
+              href={`mailto:${profile.email}`}
+              aria-label="Email"
+            >
               <Mail size={18} />
             </a>
           </div>
