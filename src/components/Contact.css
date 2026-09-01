@@ -9,3 +9,14 @@
   gap: var(--space-2);
   flex-wrap: wrap;
 }
+
+.contact-email-text {
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.contact-email-value {
+  font-family: var(--font-mono);
+  color: var(--color-text);
+}
