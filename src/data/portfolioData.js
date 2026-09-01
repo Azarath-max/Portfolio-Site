@@ -8,13 +8,14 @@ export const profile = {
   shortName: "John Gabriel Panopio",
   initials: "JP",
   title: "Computer Engineering Graduate",
-  tagline: "Interested in software, automation, and solving practical technical problems.",
+  tagline:
+    "Interested in software, automation, and solving practical technical problems.",
   summary:
     "I'm an entry-level technology professional currently developing my skills in software development and workflow automation. I'm looking for opportunities in IT support, automation, or junior software roles where I can keep building on what I learned in school and during my internship.",
   email: "your.email@example.com", // TODO: replace with your real email
   links: {
-    github: "https://github.com/your-username", // TODO: replace
-    linkedin: "https://linkedin.com/in/your-profile", // TODO: replace
+    github: "https://github.com/Azarath-max", // TODO: replace
+    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/", // TODO: replace
   },
 };
 
