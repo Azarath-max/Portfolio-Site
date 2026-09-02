@@ -15,8 +15,8 @@ export const profile = {
     "I recently completed my Computer Engineering degree and gained hands-on experience in telecommunications during my internship. I'm now building my skills in software development, automation, and APIs.",
   email: "cpe.panopio.johngabriel@gmail.com",
   links: {
-    github: "https://github.com/your-username", // TODO: replace
-    linkedin: "https://linkedin.com/in/your-profile", // TODO: replace
+    github: "https://github.com/Azarath-max", // TODO: replace
+    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/", // TODO: replace
   },
 };
 
