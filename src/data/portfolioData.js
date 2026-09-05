@@ -87,10 +87,10 @@ export const skillGroups = [
 // Replace title/description/link once a project is actually finished.
 export const projects = [
   {
-    title: "Automation Workflow",
-    status: "Planned",
+    title: "AI Lead Qualification & Smart Sales Routing System",
+    status: "Completed",
     description:
-      "An n8n workflow that connects services and automates a repetitive task end-to-end, including error handling and notifications.",
+      "What I Built I designed an end-to-end lead qualification and routing automation using n8n. The system receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. The workflow then stores the structured lead information in Airtable. Hot leads are automatically routed to Slack, while the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
   },
   {
     title: "Python API Project",
