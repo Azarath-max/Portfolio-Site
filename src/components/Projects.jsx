@@ -1,8 +1,21 @@
-import { ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ExternalLink, X } from "lucide-react";
 import { projects } from "../data/portfolioData.js";
 import "./Projects.css";
 
 export default function Projects() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setLightboxImage(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxImage]);
+
   return (
     <section id="projects" className="section">
       <div className="container">
@@ -27,11 +40,22 @@ export default function Projects() {
                 </span>
               </div>
               {project.image && (
-                <img
-                  className="project-image"
-                  src={project.image}
-                  alt={`Screenshot of ${project.title}`}
-                />
+                <button
+                  className="project-image-button"
+                  onClick={() =>
+                    setLightboxImage({
+                      src: project.image,
+                      title: project.title,
+                    })
+                  }
+                  aria-label={`View larger screenshot of ${project.title}`}
+                >
+                  <img
+                    className="project-image"
+                    src={project.image}
+                    alt={`Screenshot of ${project.title}`}
+                  />
+                </button>
               )}
               <p>{project.description}</p>
               {project.link && (
@@ -48,6 +72,30 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {lightboxImage && (
+        <div
+          className="lightbox-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${lightboxImage.title} screenshot, enlarged`}
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            className="lightbox-close"
+            onClick={() => setLightboxImage(null)}
+            aria-label="Close"
+          >
+            <X size={22} />
+          </button>
+          <img
+            className="lightbox-image"
+            src={lightboxImage.src}
+            alt={`Enlarged screenshot of ${lightboxImage.title}`}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
