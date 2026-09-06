@@ -34,6 +34,13 @@
   font-size: 1rem;
 }
 
+.project-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-2);
+}
+
 .project-status {
   font-family: var(--font-mono);
   font-size: 0.72rem;

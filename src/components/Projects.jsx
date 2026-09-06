@@ -26,6 +26,13 @@ export default function Projects() {
                   {project.status}
                 </span>
               </div>
+              {project.image && (
+                <img
+                  className="project-image"
+                  src={project.image}
+                  alt={`Screenshot of ${project.title}`}
+                />
+              )}
               <p>{project.description}</p>
               {project.link && (
                 <a

@@ -91,6 +91,7 @@ export const projects = [
     description:
       "An end-to-end lead qualification and routing automation built with n8n. The workflow receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. Structured lead information is stored in Airtable. Hot leads are automatically routed to Slack, and the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
     link: "https://github.com/Azarath-max/ai-lead-qualification-system",
+    image: "/projects/lead-qualification.png", // put the actual image file in public/projects/
   },
   {
     title: "Python API Project",
