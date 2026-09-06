@@ -16,6 +16,12 @@
   padding: var(--space-3);
 }
 
+.project-item--completed {
+  border-style: solid;
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
@@ -48,7 +54,27 @@
   background: var(--color-accent-tint);
 }
 
+.project-status--completed {
+  color: #ffffff;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
 .project-item p {
   color: var(--color-text-secondary);
   font-size: 0.95rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: var(--space-2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.project-link:hover {
+  color: var(--color-accent-dark);
 }

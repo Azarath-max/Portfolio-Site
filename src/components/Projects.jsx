@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import { projects } from "../data/portfolioData.js";
 import "./Projects.css";
 
@@ -7,20 +8,35 @@ export default function Projects() {
       <div className="container">
         <h2 className="section-heading">Currently Building</h2>
         <p className="projects-intro">
-          I'm currently building practical projects focused on automation, APIs, Python, and web
-          development. I'll add them here as they are completed.
+          I'm currently building practical projects focused on automation, APIs,
+          Python, and web development. I'll add them here as they are completed.
         </p>
 
         <div className="projects-list">
           {projects.map((project) => (
-            <div className="project-item" key={project.title}>
+            <div
+              className={`project-item ${project.status === "Completed" ? "project-item--completed" : ""}`}
+              key={project.title}
+            >
               <div className="project-header">
                 <h3>{project.title}</h3>
-                <span className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}>
+                <span
+                  className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
+                >
                   {project.status}
                 </span>
               </div>
               <p>{project.description}</p>
+              {project.link && (
+                <a
+                  className="project-link"
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Project <ExternalLink size={14} />
+                </a>
+              )}
             </div>
           ))}
         </div>

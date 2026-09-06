@@ -15,8 +15,8 @@ export const profile = {
     "I recently completed my Computer Engineering degree and gained hands-on experience in telecommunications during my internship. I'm now building my skills in software development, automation, and APIs.",
   email: "cpe.panopio.johngabriel@gmail.com",
   links: {
-    github: "https://github.com/Azarath-max", // TODO: replace
-    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/", // TODO: replace
+    github: "https://github.com/your-username", // TODO: replace
+    linkedin: "https://linkedin.com/in/your-profile", // TODO: replace
   },
 };
 
@@ -83,14 +83,14 @@ export const skillGroups = [
   },
 ];
 
-// Set status to "In Progress" or "Planned".
-// Replace title/description/link once a project is actually finished.
+// Set status to "In Progress" or "Planned". Use "Completed" once a project is actually finished.
 export const projects = [
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
     status: "Completed",
     description:
-      "What I Built I designed an end-to-end lead qualification and routing automation using n8n. The system receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. The workflow then stores the structured lead information in Airtable. Hot leads are automatically routed to Slack, while the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
+      "An end-to-end lead qualification and routing automation built with n8n. The workflow receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. Structured lead information is stored in Airtable. Hot leads are automatically routed to Slack, and the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
+    link: "https://github.com/Azarath-max/ai-lead-qualification-system",
   },
   {
     title: "Python API Project",
