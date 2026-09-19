@@ -7,12 +7,12 @@ export const profile = {
   name: "John Gabriel L. Panopio",
   shortName: "John Gabriel Panopio",
   initials: "JP",
-  titleLine1: "Computer Engineering",
-  titleLine2: "Graduate",
+  titleLine1: "AI Automation",
+  titleLine2: "Specialist",
   tagline:
     "Interested in software, automation, and solving practical technical problems.",
   summary:
-    "I recently completed my Computer Engineering degree and gained hands-on experience in telecommunications during my internship. I'm now building my skills in software development, automation, and APIs.",
+    "AI Automation Specialist building AI-powered automation workflows — connecting APIs, validating data, and letting AI handle classification and routing decisions. Also bring hands-on telecom experience from an internship analyzing live network data.",
   email: "cpe.panopio.johngabriel@gmail.com",
   links: {
     github: "https://github.com/Azarath-max",
@@ -20,7 +20,7 @@ export const profile = {
   },
 };
 
-export const about = `I recently completed my BS in Computer Engineering at Pamantasan ng Lungsod ng San Pablo, where I gained a solid foundation in both software and hardware. During my internship as a Drive Test Analyst, I got hands-on experience working with real telecom network data, which taught me how to stay methodical when troubleshooting and interpreting technical information. Right now I'm expanding into software development and workflow automation — learning Python, building small projects with APIs, and getting comfortable with tools like n8n and Zapier. I'm still early in that journey, but I enjoy the process of figuring out how systems fit together and automating the repetitive parts.`;
+export const about = `I'm a Computer Engineering graduate from Pamantasan ng Lungsod ng San Pablo, with a foundation in both software and hardware. I build automation workflows that connect APIs and use AI for classification and decision-making — including two n8n systems that validate incoming data, send it to Gemini for structured analysis, and route the results automatically across Airtable, Slack, and Gmail. I'm also continuing to build my Python skills alongside this. Before this, I worked as a Drive Test Analyst intern, analyzing real telecom network data — experience that shaped how methodically I approach troubleshooting.`;
 
 export const quickFacts = [
   { label: "Status", value: "Open to entry-level roles" },
@@ -90,7 +90,6 @@ export const skillGroups = [
 export const projects = [
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
-    status: "Completed",
     description:
       "An end-to-end lead qualification and routing automation built with n8n. The workflow receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. Structured lead information is stored in Airtable. Hot leads are automatically routed to Slack, and the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
     techStack: ["n8n", "Webhooks", "Gemini API", "Airtable", "Slack", "Gmail"],
@@ -98,15 +97,18 @@ export const projects = [
     image: "/projects/lead-qualification.png", // put the actual image file in public/projects/
   },
   {
-    title: "Python API Project",
-    status: "Planned",
+    title: "AI Customer Support Ticket Triage & Routing System",
     description:
-      "A small Python/FastAPI application that consumes or exposes an API, with proper data validation and error handling.",
-  },
-  {
-    title: "Full-Stack React Project",
-    status: "Planned",
-    description:
-      "A practical React application connected to an API or database, built to solve an actual workflow problem rather than a demo task.",
+      "An n8n automation that takes an inbound support ticket from a raw webhook submission to a classified, prioritized, and routed response. Submissions are validated before any AI call is made, then sent to Gemini for structured classification (priority, category, sentiment, and a customer-facing acknowledgement draft) using a schema-constrained response format. The AI output is schema- and enum-validated in code before anything downstream trusts it. Spam is filtered before priority is even considered, critical and high-priority tickets trigger an immediate Slack alert alongside a real acknowledgement email, and every branch — including failures — writes its own entry to an automation log so nothing is silently dropped.",
+    techStack: [
+      "n8n",
+      "Webhooks",
+      "Gemini API",
+      "Airtable",
+      "Slack",
+      "Gmail",
+      "JavaScript",
+    ],
+    link: "https://github.com/Azarath-max/AI-Customer-Support-Ticket-Triage-Routing-System-",
   },
 ];
