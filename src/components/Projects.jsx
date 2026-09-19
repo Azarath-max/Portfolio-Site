@@ -17,12 +17,12 @@ export default function Projects() {
   }, [lightboxImage]);
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section reveal">
       <div className="container">
-        <h2 className="section-heading">Currently Building</h2>
+        <h2 className="section-heading">Projects</h2>
         <p className="projects-intro">
-          I'm currently building practical projects focused on automation, APIs,
-          Python, and web development. I'll add them here as they are completed.
+          A mix of projects I've completed and ones I'm currently building,
+          focused on automation, APIs, Python, and web development.
         </p>
 
         <div className="projects-list">
@@ -39,6 +39,7 @@ export default function Projects() {
                   {project.status}
                 </span>
               </div>
+
               {project.image && (
                 <button
                   className="project-image-button"
@@ -57,7 +58,19 @@ export default function Projects() {
                   />
                 </button>
               )}
+
               <p>{project.description}</p>
+
+              {project.techStack && (
+                <div className="project-tech-tags">
+                  {project.techStack.map((tech) => (
+                    <span className="project-tech-tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               {project.link && (
                 <a
                   className="project-link"

@@ -58,6 +58,67 @@
   opacity: 0.85;
 }
 
+.project-status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.project-status--planned {
+  color: var(--color-text-secondary);
+}
+
+.project-status--in-progress {
+  color: var(--color-accent-dark);
+  border-color: var(--color-accent);
+  background: var(--color-accent-tint);
+}
+
+.project-status--completed {
+  color: #ffffff;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.project-item p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--space-2);
+}
+
+.project-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: var(--space-2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.project-link:hover {
+  color: var(--color-accent-dark);
+}
+
 .lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -93,49 +154,4 @@
 
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.2);
-}
-
-.project-status {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  white-space: nowrap;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-}
-
-.project-status--planned {
-  color: var(--color-text-secondary);
-}
-
-.project-status--in-progress {
-  color: var(--color-accent-dark);
-  border-color: var(--color-accent);
-  background: var(--color-accent-tint);
-}
-
-.project-status--completed {
-  color: #ffffff;
-  border-color: var(--color-accent);
-  background: var(--color-accent);
-}
-
-.project-item p {
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: var(--space-2);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-accent);
-}
-
-.project-link:hover {
-  color: var(--color-accent-dark);
 }

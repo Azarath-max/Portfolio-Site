@@ -3,7 +3,7 @@ import "./Education.css";
 
 export default function Education() {
   return (
-    <section id="education" className="section">
+    <section id="education" className="section reveal">
       <div className="container">
         <h2 className="section-heading">Education</h2>
         <div className="education-item">

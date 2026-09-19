@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { profile } from "../data/portfolioData.js";
+import ThemeToggle from "./ThemeToggle.jsx";
 import "./Navbar.css";
 
 const navLinks = [
@@ -31,14 +32,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <button
-          className="navbar-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="navbar-right">
+          <ThemeToggle />
+
+          <button
+            className="navbar-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {open && (

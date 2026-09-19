@@ -15,10 +15,12 @@ export const profile = {
     "I recently completed my Computer Engineering degree and gained hands-on experience in telecommunications during my internship. I'm now building my skills in software development, automation, and APIs.",
   email: "cpe.panopio.johngabriel@gmail.com",
   links: {
-    github: "https://github.com/Azarath-max", // TODO: replace
-    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/", // TODO: replace
+    github: "https://github.com/Azarath-max",
+    linkedin: "https://www.linkedin.com/in/johngabrielpanopio/",
   },
 };
+
+export const about = `I recently completed my BS in Computer Engineering at Pamantasan ng Lungsod ng San Pablo, where I gained a solid foundation in both software and hardware. During my internship as a Drive Test Analyst, I got hands-on experience working with real telecom network data, which taught me how to stay methodical when troubleshooting and interpreting technical information. Right now I'm expanding into software development and workflow automation — learning Python, building small projects with APIs, and getting comfortable with tools like n8n and Zapier. I'm still early in that journey, but I enjoy the process of figuring out how systems fit together and automating the repetitive parts.`;
 
 export const quickFacts = [
   { label: "Status", value: "Open to entry-level roles" },
@@ -32,8 +34,6 @@ export const highlights = [
   { label: "Internship", value: "Drive Test Analyst, COMIT Telecom (2026)" },
   { label: "Currently learning", value: "Python, APIs, n8n, Zapier" },
 ];
-
-export const about = `I recently completed my BS in Computer Engineering at Pamantasan ng Lungsod ng San Pablo, where I gained a solid foundation in both software and hardware. During my internship as a Drive Test Analyst, I got hands-on experience working with real telecom network data, which taught me how to stay methodical when troubleshooting and interpreting technical information. Right now I'm expanding into software development and workflow automation — learning Python, building small projects with APIs, and getting comfortable with tools like n8n and Zapier. I'm still early in that journey, but I enjoy the process of figuring out how systems fit together and automating the repetitive parts.`;
 
 export const experience = [
   {
@@ -84,12 +84,16 @@ export const skillGroups = [
 ];
 
 // Set status to "In Progress" or "Planned". Use "Completed" once a project is actually finished.
+// techStack is optional — an array of short tool/tech names shown as tags on the card.
+// image is optional — put the actual file in public/projects/ and reference the path here.
+// link is optional — only renders a "View Project" button when filled in.
 export const projects = [
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
     status: "Completed",
     description:
       "An end-to-end lead qualification and routing automation built with n8n. The workflow receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. Structured lead information is stored in Airtable. Hot leads are automatically routed to Slack, and the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
+    techStack: ["n8n", "Webhooks", "Gemini API", "Airtable", "Slack", "Gmail"],
     link: "https://github.com/Azarath-max/ai-lead-qualification-system",
     image: "/projects/lead-qualification.png", // put the actual image file in public/projects/
   },
