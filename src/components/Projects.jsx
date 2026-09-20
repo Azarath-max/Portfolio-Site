@@ -33,11 +33,13 @@ export default function Projects() {
             >
               <div className="project-header">
                 <h3>{project.title}</h3>
-                <span
-                  className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
-                >
-                  {project.status}
-                </span>
+                {project.status !== "Completed" && (
+                  <span
+                    className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
+                  >
+                    {project.status}
+                  </span>
+                )}
               </div>
 
               {project.image && (
