@@ -83,25 +83,21 @@ export const skillGroups = [
   },
 ];
 
-// Set status to "In Progress" or "Planned". Use "Completed" once a project is actually finished.
-// techStack is optional — an array of short tool/tech names shown as tags on the card.
-// image is optional — put the actual file in public/projects/ and reference the path here.
-// link is optional — only renders a "View Project" button when filled in.
 export const projects = [
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
     status: "Completed",
     description:
-      "An end-to-end lead qualification and routing automation built with n8n. The workflow receives lead submissions through a webhook, cleans and validates the data, checks for duplicate leads, and sends qualified submissions to Gemini for AI-powered lead scoring. Structured lead information is stored in Airtable. Hot leads are automatically routed to Slack, and the lead receives an acknowledgement email. Invalid submissions and failed AI responses are separated into a manual review process and logged for troubleshooting.",
+      "An n8n workflow that validates and deduplicates inbound leads, scores them with Gemini, stores results in Airtable, and routes hot leads to Slack with an automatic acknowledgement email.",
     techStack: ["n8n", "Webhooks", "Gemini API", "Airtable", "Slack", "Gmail"],
     link: "https://github.com/Azarath-max/ai-lead-qualification-system",
-    image: "/projects/lead-qualification.png", // put the actual image file in public/projects/
+    image: "/projects/lead-qualification.png",
   },
   {
     title: "AI Customer Support Ticket Triage & Routing System",
     status: "Completed",
     description:
-      "An n8n automation that takes an inbound support ticket from a raw webhook submission to a classified, prioritized, and routed response. Submissions are validated before any AI call is made, then sent to Gemini for structured classification (priority, category, sentiment, and a customer-facing acknowledgement draft) using a schema-constrained response format. The AI output is schema- and enum-validated in code before anything downstream trusts it. Spam is filtered before priority is even considered, critical and high-priority tickets trigger an immediate Slack alert alongside a real acknowledgement email, and every branch — including failures — writes its own entry to an automation log so nothing is silently dropped.",
+      "An n8n automation that validates incoming support tickets, classifies them with Gemini (priority, category, sentiment), and routes critical/high-priority tickets to Slack while logging every step for auditability.",
     techStack: [
       "n8n",
       "Webhooks",
@@ -113,5 +109,31 @@ export const projects = [
     ],
     link: "https://github.com/Azarath-max/AI-Customer-Support-Ticket-Triage-Routing-System-",
     image: "/projects/AI Customer Support Ticket Triage & Routing System.png",
+  },
+  {
+    title: "AI Customer Success Inbound Automation & Triage System",
+    status: "Completed",
+    description:
+      "A 16-stage n8n system that classifies inbound customer requests with Gemini, grounds responses in a RAG knowledge base, uses a controlled AI Agent for account lookups, and routes by deterministic health/risk scoring — with human approval via Slack before any reply sends.",
+    techStack: [
+      "n8n",
+      "PostgreSQL",
+      "Gemini API",
+      "RAG",
+      "AI Agent",
+      "Slack",
+      "Gmail",
+    ],
+    link: "https://github.com/Azarath-max/AI-Customer-Success-Inbound-Automation-Triage-System",
+    image: "/projects/architecture.jpg",
+  },
+  {
+    title: "AI Customer Onboarding Welcome Automation",
+    status: "Completed",
+    description:
+      "An n8n workflow triggered by Salesforce Closed-Won deals that validates account data, drafts a personalized welcome email with Gemini, routes it through Slack for human approval, and sends via Gmail.",
+    techStack: ["n8n", "Salesforce", "Gemini API", "Slack", "Gmail"],
+    link: "https://github.com/Azarath-max/AI-Customer-Onboarding-Welcome-Automation",
+    image: "/projects/AI Customer Onboarding Welcome Automation.png",
   },
 ];
