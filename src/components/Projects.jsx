@@ -21,8 +21,8 @@ export default function Projects() {
       <div className="container">
         <h2 className="section-heading">Projects</h2>
         <p className="projects-intro">
-          A mix of projects I've completed and ones I'm currently building,
-          focused on automation, APIs, Python, and web development.
+          A mix of projects that's focused on automation, APIs, Python, and web
+          development.
         </p>
 
         <div className="projects-list">
