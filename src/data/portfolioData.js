@@ -161,6 +161,7 @@ export const projects = [
       "JavaScript",
     ],
     link: "https://github.com/Azarath-max/AI-Customer-Support-Ticket-Triage-Routing-System-",
+    image: "/projects/AI Customer Support Ticket Triage & Routing System.png",
     details: {
       overview:
         "An n8n automation that takes a support ticket from a raw form submission to a classified, prioritized, and routed response, and only pulls a human in where a human decision matters, such as an urgent alert or a failed AI analysis.",
@@ -218,7 +219,8 @@ export const projects = [
       "Slack",
       "Gmail",
     ],
-    link: "", // add the repo link when it's up
+    link: "https://github.com/Azarath-max/AI-Customer-Success-Inbound-Automation-Triage-System",
+    image: "/projects/architecture.jpg",
     details: {
       overview:
         "An inbound customer success system built in n8n with a PostgreSQL database. It classifies a request, looks up the customer, retrieves trusted knowledge, drafts a response, and routes the case using business rules.",
@@ -267,7 +269,8 @@ export const projects = [
       "Gmail",
       "JavaScript",
     ],
-    link: "", // add the repo link when it's up
+    link: "https://github.com/Azarath-max/AI-Customer-Onboarding-Welcome-Automation",
+    image: "/projects/AI Customer Onboarding Welcome Automation.png",
     details: {
       overview:
         "An n8n workflow that sends a welcome email when a Salesforce deal closes. Salesforce is the source of truth, Gemini is used only to draft the email, and a person approves it in Slack before it is sent.",
