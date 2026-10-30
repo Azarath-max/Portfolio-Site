@@ -7,12 +7,13 @@ export const profile = {
   name: "John Gabriel L. Panopio",
   shortName: "John Gabriel Panopio",
   initials: "JP",
-  titleLine1: "AI Automation ",
-  titleLine2: "Specialist",
   tagline:
     "Interested in software, automation, and solving practical technical problems.",
+  titleLine1: "Junior Software",
+  titleLine2: "Engineer",
+  tagline: "Backend Development · AI Integration · Automation",
   summary:
-    "AI Automation Specialist building AI-powered automation workflows — connecting APIs, validating data, and letting AI handle classification and routing decisions. Also bring hands-on telecom experience from an internship analyzing live network data.",
+    "Fresh Computer Engineering graduate focused on backend and automation work. I've built n8n systems that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini-based AI steps, and I'm now deepening my Python and backend development skills.",
   email: "cpe.panopio.johngabriel@gmail.com",
   links: {
     github: "https://github.com/Azarath-max",
@@ -20,13 +21,13 @@ export const profile = {
   },
 };
 
-export const about = `I'm a Computer Engineering graduate from Pamantasan ng Lungsod ng San Pablo, with a foundation in both software and hardware. I build automation workflows that connect APIs and use AI for classification and decision-making — including n8n systems that validate incoming data, send it to Gemini for structured analysis, and route the results automatically across Airtable, Slack, and Gmail. I'm also continuing to build my Python skills alongside this. Before this, I worked as a Drive Test Analyst intern, analyzing real telecom network data — experience that shaped how methodically I approach troubleshooting.`;
+export const about = `I'm a Computer Engineering graduate from Dalubhasaan ng Lungsod ng San Pablo, with a foundation in both software and hardware. My interest is in software development, especially backend systems, APIs, and databases, and I'm still building my Python and backend skills. Alongside that, I've built automation projects in n8n that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini to validate, classify, and route incoming data, including a RAG-based customer success system. Before this, I interned as a Drive Test Analyst at COMIT Telecom Philippines, where I analyzed real network data, which taught me to troubleshoot methodically.`;
 
 export const quickFacts = [
-  { label: "Status", value: "Open to entry-level roles" },
+  { label: "Status", value: "Open to entry-level software engineering roles" },
   { label: "Focus", value: "IT · Automation · Software" },
   { label: "Education", value: "BS Computer Engineering, 2026" },
-  { label: "Currently Learning", value: "Python · n8n · APIs" },
+  { label: "Currently Learning", value: "Python · Next.js · APIs" },
 ];
 
 export const highlights = [
@@ -67,11 +68,11 @@ export const skillGroups = [
   },
   {
     category: "Backend & APIs",
-    skills: ["Node.js", "Express", "FastAPI", "REST APIs"],
+    skills: ["Node.js", "FastAPI", "REST APIs"],
   },
   {
     category: "Data",
-    skills: ["PostgreSQL", "MongoDB", "SQL", "JSON"],
+    skills: ["PostgreSQL", "SQL", "JSON"],
   },
   {
     category: "Automation",
