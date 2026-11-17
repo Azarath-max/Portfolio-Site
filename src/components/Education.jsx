@@ -9,6 +9,9 @@ export default function Education() {
         <div className="education-item">
           <h3>{education.degree}</h3>
           <p className="education-school">{education.school}</p>
+          {education.location && (
+            <p className="education-location">{education.location}</p>
+          )}
           <p className="education-period">{education.period}</p>
         </div>
       </div>

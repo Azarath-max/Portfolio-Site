@@ -1,4 +1,4 @@
-import { skillGroups } from "../data/portfolioData.js";
+import { skillGroups, learningSkills } from "../data/portfolioData.js";
 import "./Skills.css";
 
 export default function Skills() {
@@ -21,6 +21,19 @@ export default function Skills() {
             </div>
           ))}
         </div>
+
+        {learningSkills?.length > 0 && (
+          <div className="skills-learning">
+            <h3 className="skills-category">Currently learning</h3>
+            <div className="skills-tags">
+              {learningSkills.map((skill) => (
+                <span className="skills-tag skills-tag--learning" key={skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

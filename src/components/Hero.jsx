@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { profile, quickFacts } from "../data/portfolioData.js";
 import "./Hero.css";
 
@@ -23,6 +23,17 @@ export default function Hero() {
             <a href="#contact" className="btn btn-secondary">
               Contact Me
             </a>
+            {profile.resume && (
+              <a
+                href={profile.resume}
+                className="btn btn-secondary"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FileText size={16} />
+                Résumé
+              </a>
+            )}
           </div>
 
           <div className="hero-social">

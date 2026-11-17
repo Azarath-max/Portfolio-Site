@@ -7,60 +7,63 @@ export const profile = {
   name: "John Gabriel L. Panopio",
   shortName: "John Gabriel Panopio",
   initials: "JP",
-  tagline:
-    "Interested in software, automation, and solving practical technical problems.",
   titleLine1: "Junior Software",
   titleLine2: "Engineer",
-  tagline: "Backend Development · AI Integration · Automation",
+  tagline: "Backend Development · Automation · AI Integration",
   summary:
-    "Fresh Computer Engineering graduate focused on backend and automation work. I've built n8n systems that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini-based AI steps, and I'm now deepening my Python and backend development skills.",
+    "Computer Engineering graduate who builds backend and automation systems. I've shipped workflows that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini, designed so validation, retries, and audit logging make every failure visible instead of silent. I'm now building those same systems in Python and FastAPI.",
   email: "cpe.panopio.johngabriel@gmail.com",
+  resume: "/resume.pdf",
   links: {
     github: "https://github.com/Azarath-max",
     linkedin: "https://www.linkedin.com/in/johngabrielpanopio/",
   },
 };
 
-export const about = `I'm a Computer Engineering graduate from Dalubhasaan ng Lungsod ng San Pablo, with a foundation in both software and hardware. My interest is in software development, especially backend systems, APIs, and databases, and I'm still building my Python and backend skills. Alongside that, I've built automation projects in n8n that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini to validate, classify, and route incoming data, including a RAG-based customer success system. Before this, I interned as a Drive Test Analyst at COMIT Telecom Philippines, where I analyzed real network data, which taught me to troubleshoot methodically.`;
+export const about = `I'm a Computer Engineering graduate from Pamantasan ng Lungsod ng San Pablo (PLSP), with a foundation in both software and hardware. My interest is in software development, especially backend systems, APIs, and databases. I've built automation systems in n8n that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini to validate, classify, and route incoming data, including a RAG-based customer success system backed by pgvector. I'm now rebuilding that work in Python and FastAPI, where I can write the rules, tests, and deployment myself rather than only inside a workflow tool. Before this, I interned as a Drive Test Analyst at COMIT Telecom Philippines, where I analyzed real network data, which taught me to troubleshoot methodically.`;
 
 export const quickFacts = [
-  { label: "Status", value: "Open to entry-level software engineering roles" },
-  { label: "Focus", value: "IT · Automation · Software" },
+  { label: "Status", value: "Open to entry-level backend and automation roles" },
+  { label: "Location", value: "Makati City, Metro Manila" },
+  { label: "Focus", value: "Backend · APIs · Automation" },
   { label: "Education", value: "BS Computer Engineering, 2026" },
-  { label: "Currently Learning", value: "Python · Next.js · APIs" },
+  { label: "Currently Learning", value: "Python · FastAPI · TypeScript" },
 ];
 
 export const highlights = [
   { label: "Degree", value: "BS Computer Engineering, PLSP (2022–2026)" },
   { label: "Internship", value: "Drive Test Analyst, COMIT Telecom (2026)" },
-  { label: "Currently learning", value: "Python, APIs, n8n, Zapier" },
+  { label: "Currently learning", value: "Python, FastAPI, TypeScript" },
 ];
 
 export const experience = [
   {
     role: "Drive Test Analyst Intern",
     company: "COMIT Telecom Philippines Inc.",
-    period: "January 2026 — May 2026",
+    period: "February 2026 — May 2026",
     bullets: [
-      "Monitored and analyzed telecommunications network data collected during drive tests.",
-      "Used WNG Analyzer to review network performance and identify issues across test routes.",
-      "Assisted with troubleshooting and prepared reports summarizing findings.",
-      "Worked with network site and location data to help map coverage and identify problem areas.",
-      "Helped organize and interpret technical information for the wider team.",
+      "Monitored and analyzed telecom network data to identify abnormal network conditions.",
+      "Investigated technical issues and prepared weekly troubleshooting reports.",
+      "Analyzed field data with WNG Analyzer across 100 network site conditions.",
+      "Mapped 50 test site locations in Google Earth Pro for technical tracking.",
+      "Coordinated with field teams to verify network data and investigate discrepancies.",
     ],
   },
 ];
 
 export const education = {
   degree: "BS Computer Engineering",
-  school: "Pamantasan ng Lungsod ng San Pablo",
+  school: "Pamantasan ng Lungsod ng San Pablo (PLSP)",
+  location: "San Pablo City, Laguna",
   period: "2022 — 2026",
 };
 
+// Only list a skill here if a project, repository, or shipped feature backs it.
+// Everything else belongs in `learningSkills`.
 export const skillGroups = [
   {
     category: "Programming",
-    skills: ["Python", "JavaScript", "TypeScript"],
+    skills: ["JavaScript", "SQL"],
   },
   {
     category: "Frontend",
@@ -68,11 +71,11 @@ export const skillGroups = [
   },
   {
     category: "Backend & APIs",
-    skills: ["Node.js", "FastAPI", "REST APIs"],
+    skills: ["REST APIs", "Webhooks", "JSON"],
   },
   {
     category: "Data",
-    skills: ["PostgreSQL", "SQL", "JSON"],
+    skills: ["PostgreSQL", "pgvector", "Airtable"],
   },
   {
     category: "Automation",
@@ -80,9 +83,11 @@ export const skillGroups = [
   },
   {
     category: "Tools",
-    skills: ["Git", "GitHub", "Docker"],
+    skills: ["Git", "GitHub"],
   },
 ];
+
+export const learningSkills = ["Python", "FastAPI", "TypeScript", "Node.js", "Docker"];
 
 export const projects = [
   {

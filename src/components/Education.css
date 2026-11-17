@@ -8,6 +8,12 @@
   font-weight: 500;
 }
 
+.education-location {
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
 .education-period {
   margin-top: 0.25rem;
   font-family: var(--font-mono);
