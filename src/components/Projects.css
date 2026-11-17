@@ -33,6 +33,16 @@
   border-color: var(--color-accent);
 }
 
+/* The featured project spans the full row and carries the accent. */
+.project-card--featured {
+  grid-column: 1 / -1;
+  border-top: 3px solid var(--color-accent);
+}
+
+.project-card--featured .project-image {
+  max-height: 260px;
+}
+
 .project-image-button {
   display: block;
   width: 100%;
@@ -92,6 +102,13 @@
   color: var(--color-accent-dark);
   border-color: var(--color-accent);
   background: var(--color-accent-tint);
+}
+
+.project-status--featured {
+  color: var(--color-accent-dark);
+  border-color: var(--color-accent);
+  background: var(--color-accent-tint);
+  font-weight: 500;
 }
 
 .project-tech-tags {

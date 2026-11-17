@@ -11,7 +11,7 @@ export const profile = {
   titleLine2: "Engineer",
   tagline: "Backend Development · Automation · AI Integration",
   summary:
-    "Computer Engineering graduate who builds backend and automation systems. I've shipped workflows that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini, designed so validation, retries, and audit logging make every failure visible instead of silent. I'm now building those same systems in Python and FastAPI.",
+    "Computer Engineering graduate who builds backend and automation systems. I started with n8n workflows connecting webhooks, REST APIs, PostgreSQL, and Gemini, then rebuilt the routing core as a FastAPI service with 55 tests, a Docker image, and CI. The design rule in both is the same: validate everything, let plain code make the decisions, and never send a guess to a customer.",
   email: "cpe.panopio.johngabriel@gmail.com",
   resume: "/resume.pdf",
   links: {
@@ -20,20 +20,20 @@ export const profile = {
   },
 };
 
-export const about = `I'm a Computer Engineering graduate from Pamantasan ng Lungsod ng San Pablo (PLSP), with a foundation in both software and hardware. My interest is in software development, especially backend systems, APIs, and databases. I've built automation systems in n8n that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini to validate, classify, and route incoming data, including a RAG-based customer success system backed by pgvector. I'm now rebuilding that work in Python and FastAPI, where I can write the rules, tests, and deployment myself rather than only inside a workflow tool. Before this, I interned as a Drive Test Analyst at COMIT Telecom Philippines, where I analyzed real network data, which taught me to troubleshoot methodically.`;
+export const about = `I'm a Computer Engineering graduate from Pamantasan ng Lungsod ng San Pablo (PLSP), with a foundation in both software and hardware. My interest is in software development, especially backend systems, APIs, and databases. I've built automation systems in n8n that connect webhooks, REST APIs, PostgreSQL, Airtable, and Gemini to validate, classify, and route incoming data, including a RAG-based customer success system backed by pgvector. I then rebuilt its routing core as a FastAPI service, which is where I learned that the interesting part of an AI feature is not the prompt: it is the validation, the tests, and the decision about what the system does when the model is wrong. Before this, I interned as a Drive Test Analyst at COMIT Telecom Philippines, where I analyzed real network data, which taught me to troubleshoot methodically.`;
 
 export const quickFacts = [
   { label: "Status", value: "Open to entry-level backend and automation roles" },
   { label: "Location", value: "Makati City, Metro Manila" },
   { label: "Focus", value: "Backend · APIs · Automation" },
   { label: "Education", value: "BS Computer Engineering, 2026" },
-  { label: "Currently Learning", value: "Python · FastAPI · TypeScript" },
+  { label: "Currently Learning", value: "TypeScript · Node.js" },
 ];
 
 export const highlights = [
   { label: "Degree", value: "BS Computer Engineering, PLSP (2022–2026)" },
   { label: "Internship", value: "Drive Test Analyst, COMIT Telecom (2026)" },
-  { label: "Currently learning", value: "Python, FastAPI, TypeScript" },
+  { label: "Currently learning", value: "TypeScript, Node.js" },
 ];
 
 export const experience = [
@@ -63,15 +63,15 @@ export const education = {
 export const skillGroups = [
   {
     category: "Programming",
-    skills: ["JavaScript", "SQL"],
+    skills: ["Python", "JavaScript", "SQL"],
+  },
+  {
+    category: "Backend & APIs",
+    skills: ["FastAPI", "Pydantic", "REST APIs", "Webhooks", "JSON"],
   },
   {
     category: "Frontend",
     skills: ["React", "HTML", "CSS"],
-  },
-  {
-    category: "Backend & APIs",
-    skills: ["REST APIs", "Webhooks", "JSON"],
   },
   {
     category: "Data",
@@ -82,14 +82,87 @@ export const skillGroups = [
     skills: ["n8n", "Zapier"],
   },
   {
-    category: "Tools",
-    skills: ["Git", "GitHub"],
+    category: "Testing & Tooling",
+    skills: ["pytest", "Git", "GitHub Actions", "Docker"],
   },
 ];
 
-export const learningSkills = ["Python", "FastAPI", "TypeScript", "Node.js", "Docker"];
+export const learningSkills = ["TypeScript", "Node.js"];
 
 export const projects = [
+  {
+    title: "Customer Support Triage API",
+    status: "Completed",
+    featured: true,
+    summary:
+      "A FastAPI service built on one rule: the model classifies, plain code decides. Message input and model output are both validated before anything acts on them, health rules can only raise risk, and a failed classification degrades to human review at confidence zero instead of sending a guess. This is the Python rewrite of the n8n customer success workflow below.",
+    techStack: [
+      "Python",
+      "FastAPI",
+      "Pydantic",
+      "PostgreSQL",
+      "pgvector",
+      "Gemini API",
+      "pytest",
+      "Docker",
+      "GitHub Actions",
+    ],
+    link: "https://github.com/Azarath-max/cs-triage-api",
+    image: "/projects/cs-triage-api.svg",
+    details: {
+      overview:
+        "An inbound support message is validated, classified by an LLM against a schema, re-validated in code, scored against deterministic account-health rules, and routed to a queue with an explicit response mode. Risky or uncertain cases are held for a human before anything is sent. The service runs with no API key, no database, and no Docker, because the classifier and repository both sit behind interfaces.",
+      problem:
+        "My earlier customer success system lived inside n8n. The workflow proved the pipeline, but the routing logic was configuration rather than code: it could not be unit-tested, reviewed in a pull request, or reasoned about without opening a visual editor. That is fine for a prototype and a problem for anything a team has to maintain.",
+      technologies: [
+        "Python 3.11+",
+        "FastAPI",
+        "Pydantic v2",
+        "PostgreSQL + pgvector",
+        "Gemini API (schema-constrained)",
+        "pytest",
+        "Docker + Docker Compose",
+        "GitHub Actions",
+      ],
+      architecture: [
+        "POST /v1/messages is validated by Pydantic: email format, message_id character set, length caps. A failure returns 422 and nothing is persisted.",
+        "A duplicate check runs before the model is called; message_id is also UNIQUE in Postgres, so two simultaneous arrivals cannot both be stored.",
+        "The classifier is an interface with two implementations: Gemini with a response schema, and a deterministic keyword stub for local runs.",
+        "The model response is parsed by pure functions that reject unknown enums, clamp confidence, and drop unrecognised keys.",
+        "A failed classification becomes confidence 0, which the routing rules convert to human review with no draft.",
+        "Customer signals are read from the database. The LLM never supplies them.",
+        "assess_health and decide_routing are pure functions with no I/O, so every branch is unit-testable.",
+        "The interaction and an append-only audit log entry are written with the outcome, response mode, confidence, and the reasons that fired.",
+      ],
+      implementation: [
+        "Model output is treated as untrusted input. It comes from text a customer controls, so it gets the same treatment as a form field: required keys checked, enums rejected rather than guessed, confidence clamped to 0-1.",
+        "The failure mode is deliberate: a broken model degrades to 'a person reads this', never to 'a guess reached a customer'.",
+        "The prompt frames message text as data, not instructions, but the real defence is structural. Model output can only become a validated Classification, and routing is decided by code that never reads the raw message.",
+        "Health can only go up automatically. If the stored status is already higher than the rules compute, the stored status wins and the reason is recorded.",
+        "Routing priority is explicit and ordered: escalate, csm_review, billing, human_review, commercial, adoption, standard. First match wins.",
+        "Billing never involves an AI decision. It gets a fixed template and a specialist queue regardless of confidence.",
+        "Two thresholds, not one: MIN_CONFIDENCE decides whether a message is triaged at all, AUTO_SEND_CONFIDENCE decides whether a reply can go without approval.",
+        "The API returns health_reasons alongside the decision, so the response explains why an account was flagged rather than just naming a status.",
+      ],
+      challenges: [
+        "Keeping the rules testable meant refusing to let the HTTP layer, the database, or the model leak into them. The two Protocol boundaries exist for that reason.",
+        "FastAPI dependency injection is expressed as default arguments, which ruff's B008 rule flags. The fix was a per-file ignore with a comment explaining why, not disabling the rule globally.",
+        "The route handler is a sync def on purpose: the classifier and repository do blocking I/O, so FastAPI runs it in its threadpool instead of stalling the event loop.",
+      ],
+      testing: [
+        "55 pytest tests, run in CI with no network, no database, and no API key.",
+        "Coverage spans validation edge cases (missing keys, unknown enums, boolean confidence, non-list fields), every health rule, every routing branch, the Gemini request and response handling via httpx.MockTransport, and the HTTP layer end to end.",
+        "CI also runs ruff check, ruff format --check, and a Docker image build.",
+      ],
+      future: [
+        "An evaluation set of fixed messages with expected classifications, run in CI to catch prompt or model regressions.",
+        "Response drafting with a content guard that blocks money and commitment language.",
+        "A Slack approval flow with a 24-hour timeout.",
+        "A read-only dashboard over the audit log.",
+        "Deploy it publicly so the OpenAPI docs are a live link rather than a local command.",
+      ],
+    },
+  },
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
     status: "Completed",

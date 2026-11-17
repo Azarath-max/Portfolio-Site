@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="Request pipeline: validate, dedupe, classify with Gemini, assess health, route, audit">
+  <rect width="1200" height="330" fill="#fafbf9"/>
+  <rect x="0" y="0" width="8" height="330" fill="#2f6f4e"/>
+
+  <text x="44" y="52" font-family="'IBM Plex Mono', Consolas, monospace" font-size="22" fill="#1a1d1b">POST /v1/messages</text>
+  <text x="44" y="78" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="16" fill="#5b615c">The model classifies. Plain code decides.</text>
+
+  <g font-family="'IBM Plex Sans', 'Segoe UI', sans-serif">
+    <!-- 1 Validate -->
+    <rect x="40" y="106" width="166" height="80" rx="8" fill="#ffffff" stroke="#e1e4de" stroke-width="1.5"/>
+    <text x="123" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#1a1d1b">Validate</text>
+    <text x="123" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#5b615c">Pydantic · 422</text>
+
+    <!-- 2 Dedupe -->
+    <rect x="230" y="106" width="166" height="80" rx="8" fill="#ffffff" stroke="#e1e4de" stroke-width="1.5"/>
+    <text x="313" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#1a1d1b">Dedupe</text>
+    <text x="313" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#5b615c">message_id UNIQUE</text>
+
+    <!-- 3 Classify (the only AI step) -->
+    <rect x="420" y="106" width="166" height="80" rx="8" fill="#eaf2ee" stroke="#2f6f4e" stroke-width="2"/>
+    <text x="503" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#234f38">Classify</text>
+    <text x="503" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#234f38">Gemini + schema</text>
+
+    <!-- 4 Health -->
+    <rect x="610" y="106" width="166" height="80" rx="8" fill="#ffffff" stroke="#e1e4de" stroke-width="1.5"/>
+    <text x="693" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#1a1d1b">Assess health</text>
+    <text x="693" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#5b615c">raise only</text>
+
+    <!-- 5 Route -->
+    <rect x="800" y="106" width="166" height="80" rx="8" fill="#ffffff" stroke="#e1e4de" stroke-width="1.5"/>
+    <text x="883" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#1a1d1b">Route</text>
+    <text x="883" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#5b615c">ordered rules</text>
+
+    <!-- 6 Audit -->
+    <rect x="990" y="106" width="166" height="80" rx="8" fill="#ffffff" stroke="#e1e4de" stroke-width="1.5"/>
+    <text x="1073" y="139" text-anchor="middle" font-size="17" font-weight="600" fill="#1a1d1b">Audit</text>
+    <text x="1073" y="162" text-anchor="middle" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" fill="#5b615c">append-only log</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#2f6f4e" stroke-width="1.5" fill="none">
+    <path d="M206 146 H230"/><path d="M222 140 L230 146 L222 152"/>
+    <path d="M396 146 H420"/><path d="M412 140 L420 146 L412 152"/>
+    <path d="M586 146 H610"/><path d="M602 140 L610 146 L602 152"/>
+    <path d="M776 146 H800"/><path d="M792 140 L800 146 L792 152"/>
+    <path d="M966 146 H990"/><path d="M982 140 L990 146 L982 152"/>
+  </g>
+
+  <line x1="40" y1="226" x2="1156" y2="226" stroke="#e1e4de" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <g font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="15" fill="#5b615c">
+    <text x="44" y="262">Model output is untrusted input: required keys checked, unknown enums rejected, confidence clamped.</text>
+    <text x="44" y="288">A failed classification returns confidence 0, so it can only become “a human reads this.”</text>
+  </g>
+
+  <g font-family="'IBM Plex Mono', Consolas, monospace" font-size="13" fill="#2f6f4e">
+    <text x="44" y="314">Python · FastAPI · Pydantic v2 · PostgreSQL + pgvector · pytest · Docker · GitHub Actions</text>
+  </g>
+</svg>

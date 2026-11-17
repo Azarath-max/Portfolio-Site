@@ -104,15 +104,15 @@ export default function Projects() {
       <div className="projects-wrap">
         <h2 className="section-heading">Projects</h2>
         <p className="projects-intro">
-          Automation systems built with n8n, REST APIs, databases, and AI
-          integrations. Open any project for its architecture, implementation,
-          and testing notes.
+          Backend services and automation systems built with Python, FastAPI, n8n,
+          REST APIs, databases, and AI integrations. Open any project for its
+          architecture, implementation, and testing notes.
         </p>
 
         <div className="projects-grid">
           {projects.map((project) => (
             <article
-              className={`project-card ${project.status === "Completed" ? "project-card--completed" : ""}`}
+              className={`project-card ${project.status === "Completed" ? "project-card--completed" : ""} ${project.featured ? "project-card--featured" : ""}`}
               key={project.title}
             >
               {project.image && (
@@ -137,6 +137,11 @@ export default function Projects() {
               <div className="project-card-body">
                 <div className="project-header">
                   <h3>{project.title}</h3>
+                  {project.featured && (
+                    <span className="project-status project-status--featured">
+                      Featured
+                    </span>
+                  )}
                   {project.status !== "Completed" && (
                     <span
                       className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
