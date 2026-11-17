@@ -95,7 +95,7 @@ export const projects = [
     status: "Completed",
     featured: true,
     summary:
-      "A FastAPI service built on one rule: the model classifies, plain code decides. Message input and model output are both validated before anything acts on them, health rules can only raise risk, and a failed classification degrades to human review at confidence zero instead of sending a guess. This is the Python rewrite of the n8n customer success workflow below.",
+      "A FastAPI service built on one rule: the model classifies, plain code decides. Message input and model output are both validated before anything acts on them, health rules can only raise risk, and a failed classification degrades to human review at confidence zero instead of sending a guess. It runs live on Render, so the OpenAPI docs are clickable rather than a local command. This is the Python rewrite of the n8n customer success workflow below.",
     techStack: [
       "Python",
       "FastAPI",
@@ -108,6 +108,8 @@ export const projects = [
       "GitHub Actions",
     ],
     link: "https://github.com/Azarath-max/cs-triage-api",
+    liveLink: "https://cs-triage-api.onrender.com/docs",
+    liveLabel: "Live API docs",
     image: "/projects/cs-triage-api.svg",
     details: {
       overview:
@@ -150,7 +152,7 @@ export const projects = [
         "The route handler is a sync def on purpose: the classifier and repository do blocking I/O, so FastAPI runs it in its threadpool instead of stalling the event loop.",
       ],
       testing: [
-        "55 pytest tests, run in CI with no network, no database, and no API key.",
+        "56 pytest tests, run in CI with no network, no database, and no API key.",
         "Coverage spans validation edge cases (missing keys, unknown enums, boolean confidence, non-list fields), every health rule, every routing branch, the Gemini request and response handling via httpx.MockTransport, and the HTTP layer end to end.",
         "CI also runs ruff check, ruff format --check, and a Docker image build.",
       ],
@@ -159,7 +161,7 @@ export const projects = [
         "Response drafting with a content guard that blocks money and commitment language.",
         "A Slack approval flow with a 24-hour timeout.",
         "A read-only dashboard over the audit log.",
-        "Deploy it publicly so the OpenAPI docs are a live link rather than a local command.",
+        "Per-sender rate limiting on the public deployment.",
       ],
     },
   },

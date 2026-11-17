@@ -153,6 +153,19 @@
   color: var(--color-accent-dark);
 }
 
+/* The live link is the one a recruiter can actually click and call. */
+.project-link--live {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+}
+
+.project-link--live:hover {
+  border-color: var(--color-accent-dark);
+}
+
 /* ---------- Overlays (details panel + image lightbox) ---------- */
 .overlay {
   position: fixed;

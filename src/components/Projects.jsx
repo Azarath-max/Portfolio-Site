@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github, Globe, X } from "lucide-react";
 import { projects } from "../data/portfolioData.js";
 import "./Projects.css";
 
@@ -183,6 +183,17 @@ export default function Projects() {
                     <Github size={15} /> Repository <ExternalLink size={13} />
                   </a>
                 )}
+                {project.liveLink && (
+                  <a
+                    className="project-link project-link--live"
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Globe size={15} /> {project.liveLabel || "Live demo"}{" "}
+                    <ExternalLink size={13} />
+                  </a>
+                )}
               </div>
             </article>
           ))}
@@ -226,17 +237,31 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {activeProject.link && (
+                  {(activeProject.link || activeProject.liveLink) && (
                     <div className="detail-panel-footer">
-                      <a
-                        className="project-link"
-                        href={activeProject.link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <Github size={15} /> View repository{" "}
-                        <ExternalLink size={13} />
-                      </a>
+                      {activeProject.link && (
+                        <a
+                          className="project-link"
+                          href={activeProject.link}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Github size={15} /> View repository{" "}
+                          <ExternalLink size={13} />
+                        </a>
+                      )}
+                      {activeProject.liveLink && (
+                        <a
+                          className="project-link project-link--live"
+                          href={activeProject.liveLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Globe size={15} />{" "}
+                          {activeProject.liveLabel || "Live demo"}{" "}
+                          <ExternalLink size={13} />
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
