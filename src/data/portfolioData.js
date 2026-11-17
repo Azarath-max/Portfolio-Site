@@ -11,7 +11,7 @@ export const profile = {
   titleLine2: "Engineer",
   tagline: "Backend Development · Automation · AI Integration",
   summary:
-    "Computer Engineering graduate who builds backend and automation systems. I started with n8n workflows connecting webhooks, REST APIs, PostgreSQL, and Gemini, then rebuilt the routing core as a FastAPI service with 55 tests, a Docker image, and CI. The design rule in both is the same: validate everything, let plain code make the decisions, and never send a guess to a customer.",
+    "Computer Engineering graduate building backend services and AI-powered automation systems with Python and FastAPI. I believe in building reliable software through strict validation, deterministic logic, and one principle: never send a guess to a customer.",
   email: "cpe.panopio.johngabriel@gmail.com",
   resume: "/resume.pdf",
   links: {
