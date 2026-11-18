@@ -407,7 +407,7 @@ export const projects = [
       "Docker Compose",
     ],
     link: "https://github.com/Azarath-max/it-helpdesk",
-    image: "/projects/it-helpdesk-placeholder.png",
+    image: "/projects/it-helpdesk.png",
     details: {
       overview:
         "A full-stack ticketing platform examined as a learning exercise in production-grade software architecture. The system implements core ticket lifecycle features (creation, status tracking, assignment, resolution) using a modular monolith architecture with Python FastAPI and React.",
