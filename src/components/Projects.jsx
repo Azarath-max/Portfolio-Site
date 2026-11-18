@@ -7,6 +7,8 @@ import "./Projects.css";
 // Order and labels for the detail sections. A section only renders if the project has it.
 const DETAIL_SECTIONS = [
   { key: "overview", label: "Overview" },
+  { key: "what_i_learned", label: "What I learned" },
+  { key: "what_i_did", label: "What I did" },
   { key: "problem", label: "Problem solved" },
   { key: "technologies", label: "Technologies" },
   { key: "architecture", label: "Architecture" },
