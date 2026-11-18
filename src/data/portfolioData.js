@@ -92,8 +92,8 @@ export const learningSkills = ["TypeScript", "Node.js"];
 export const projects = [
   {
     title: "Customer Support Triage API",
+    category: "backend",
     status: "Completed",
-    featured: true,
     summary:
       "A FastAPI service built on one rule: the model classifies, plain code decides. Message input and model output are both validated before anything acts on them, health rules can only raise risk, and a failed classification degrades to human review at confidence zero instead of sending a guess. It runs live on Render, so the OpenAPI docs are clickable rather than a local command. This is the Python rewrite of the n8n customer success workflow below.",
     techStack: [
@@ -167,6 +167,7 @@ export const projects = [
   },
   {
     title: "AI Lead Qualification & Smart Sales Routing System",
+    category: "automation",
     status: "Completed",
     summary:
       "An n8n pipeline that validates inbound leads, checks Airtable for duplicates, and scores new ones with Gemini using a schema-constrained JSON response. The AI output is validated in code, then routed by Hot, Warm, or Cold to Slack alerts or Gmail drafts, with every failure path logged.",
@@ -228,6 +229,7 @@ export const projects = [
   },
   {
     title: "AI Customer Support Ticket Triage & Routing System",
+    category: "automation",
     status: "Completed",
     summary:
       "A 20-node n8n workflow that validates tickets before any AI call, classifies them with Gemini (priority, category, sentiment), and re-validates the response in code. Spam is filtered first, critical and high-priority tickets trigger a Slack alert, and every branch writes to an automation log.",
@@ -286,6 +288,7 @@ export const projects = [
   },
   {
     title: "AI Customer Success Inbound Automation & Triage System",
+    category: "automation",
     status: "Completed",
     summary:
       "A 16-stage n8n system backed by PostgreSQL and pgvector. Gemini classifies each request, a RAG knowledge base and a read-only AI Agent supply context, and deterministic health and routing rules make the routing decision, with a Slack human-approval step.",
@@ -336,6 +339,7 @@ export const projects = [
   },
   {
     title: "AI Customer Onboarding Welcome Automation",
+    category: "automation",
     status: "Completed",
     summary:
       "An n8n workflow triggered when a Salesforce opportunity reaches Closed Won. It pulls contact and account data with SOQL, validates required fields, drafts a welcome email with Gemini, and sends through Gmail only after Slack approval, then writes the status back to Salesforce.",
@@ -389,6 +393,7 @@ export const projects = [
   },
   {
     title: "IT Helpdesk Ticketing System",
+    category: "backend",
     status: "Completed",
     summary:
       "Full-stack ticketing platform studied and documented as a learning exercise in production-grade software architecture.",

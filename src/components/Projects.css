@@ -11,7 +11,22 @@
   margin-bottom: var(--space-4);
 }
 
-/* All projects visible at once: two columns on desktop, one on small screens */
+/* Grouped by category, each group in the same two-column grid */
+.project-group + .project-group {
+  margin-top: var(--space-4);
+}
+
+.project-group-heading {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-group-note {
+  color: var(--color-text-secondary);
+  font-size: 0.93rem;
+  margin-bottom: var(--space-3);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -31,16 +46,6 @@
 
 .project-card:hover {
   border-color: var(--color-accent);
-}
-
-/* The featured project spans the full row and carries the accent. */
-.project-card--featured {
-  grid-column: 1 / -1;
-  border-top: 3px solid var(--color-accent);
-}
-
-.project-card--featured .project-image {
-  max-height: 260px;
 }
 
 .project-image-button {
@@ -102,13 +107,6 @@
   color: var(--color-accent-dark);
   border-color: var(--color-accent);
   background: var(--color-accent-tint);
-}
-
-.project-status--featured {
-  color: var(--color-accent-dark);
-  border-color: var(--color-accent);
-  background: var(--color-accent-tint);
-  font-weight: 500;
 }
 
 .project-tech-tags {

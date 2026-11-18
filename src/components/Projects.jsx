@@ -18,6 +18,20 @@ const DETAIL_SECTIONS = [
   { key: "future", label: "Future improvements" },
 ];
 
+// Project groups render in this order. A project joins a group via its `category`.
+const PROJECT_GROUPS = [
+  {
+    key: "backend",
+    label: "Backend & full-stack",
+    note: "Python and FastAPI services with tests, CI, and deployed documentation.",
+  },
+  {
+    key: "automation",
+    label: "Workflow automation",
+    note: "n8n pipelines that validate input, call an LLM, and route the result.",
+  },
+];
+
 function DetailSection({ sectionKey, label, value }) {
   let body;
   if (typeof value === "string") {
@@ -55,6 +69,82 @@ function DetailSection({ sectionKey, label, value }) {
       <h4>{label}</h4>
       {body}
     </section>
+  );
+}
+
+function ProjectCard({ project, onImageClick, onOpenDetails }) {
+  return (
+    <article
+      className={`project-card ${project.status === "Completed" ? "project-card--completed" : ""}`}
+    >
+      {project.image && (
+        <button
+          className="project-image-button"
+          onClick={onImageClick}
+          aria-label={`View larger screenshot of ${project.title}`}
+        >
+          <img
+            className="project-image"
+            src={project.image}
+            alt={`Screenshot of ${project.title}`}
+          />
+        </button>
+      )}
+
+      <div className="project-card-body">
+        <div className="project-header">
+          <h3>{project.title}</h3>
+          {project.status !== "Completed" && (
+            <span
+              className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
+            >
+              {project.status}
+            </span>
+          )}
+        </div>
+
+        <p className="project-summary">{project.summary}</p>
+
+        {project.techStack && (
+          <div className="project-tech-tags">
+            {project.techStack.map((tech) => (
+              <span className="project-tech-tag" key={tech}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="project-actions">
+        {project.details && (
+          <button className="btn btn-secondary" onClick={onOpenDetails}>
+            View details
+          </button>
+        )}
+        {project.link && (
+          <a
+            className="project-link"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Github size={15} /> Repository <ExternalLink size={13} />
+          </a>
+        )}
+        {project.liveLink && (
+          <a
+            className="project-link project-link--live"
+            href={project.liveLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Globe size={15} /> {project.liveLabel || "Live demo"}{" "}
+            <ExternalLink size={13} />
+          </a>
+        )}
+      </div>
+    </article>
   );
 }
 
@@ -111,95 +201,35 @@ export default function Projects() {
           architecture, implementation, and testing notes.
         </p>
 
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <article
-              className={`project-card ${project.status === "Completed" ? "project-card--completed" : ""} ${project.featured ? "project-card--featured" : ""}`}
-              key={project.title}
-            >
-              {project.image && (
-                <button
-                  className="project-image-button"
-                  onClick={() =>
-                    setLightboxImage({
-                      src: project.image,
-                      title: project.title,
-                    })
-                  }
-                  aria-label={`View larger screenshot of ${project.title}`}
-                >
-                  <img
-                    className="project-image"
-                    src={project.image}
-                    alt={`Screenshot of ${project.title}`}
+        {PROJECT_GROUPS.map((group) => {
+          const groupProjects = projects.filter(
+            (project) => project.category === group.key,
+          );
+          if (groupProjects.length === 0) return null;
+
+          return (
+            <div className="project-group" key={group.key}>
+              <h3 className="project-group-heading">{group.label}</h3>
+              <p className="project-group-note">{group.note}</p>
+
+              <div className="projects-grid">
+                {groupProjects.map((project) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    onImageClick={() =>
+                      setLightboxImage({
+                        src: project.image,
+                        title: project.title,
+                      })
+                    }
+                    onOpenDetails={(e) => openDetails(project, e)}
                   />
-                </button>
-              )}
-
-              <div className="project-card-body">
-                <div className="project-header">
-                  <h3>{project.title}</h3>
-                  {project.featured && (
-                    <span className="project-status project-status--featured">
-                      Featured
-                    </span>
-                  )}
-                  {project.status !== "Completed" && (
-                    <span
-                      className={`project-status project-status--${project.status.toLowerCase().replace(" ", "-")}`}
-                    >
-                      {project.status}
-                    </span>
-                  )}
-                </div>
-
-                <p className="project-summary">{project.summary}</p>
-
-                {project.techStack && (
-                  <div className="project-tech-tags">
-                    {project.techStack.map((tech) => (
-                      <span className="project-tech-tag" key={tech}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                ))}
               </div>
-
-              <div className="project-actions">
-                {project.details && (
-                  <button
-                    className="btn btn-secondary"
-                    onClick={(e) => openDetails(project, e)}
-                  >
-                    View details
-                  </button>
-                )}
-                {project.link && (
-                  <a
-                    className="project-link"
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Github size={15} /> Repository <ExternalLink size={13} />
-                  </a>
-                )}
-                {project.liveLink && (
-                  <a
-                    className="project-link project-link--live"
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Globe size={15} /> {project.liveLabel || "Live demo"}{" "}
-                    <ExternalLink size={13} />
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+            </div>
+          );
+        })}
       </div>
 
       {overlayOpen &&
